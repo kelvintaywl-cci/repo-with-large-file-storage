@@ -12,6 +12,7 @@ jobs:
       name: windows/default
     steps:
       - git-shallow-clone/checkout:
+          shell: bash.exe
           fetch_depth: 3
       - run:
           name: List files

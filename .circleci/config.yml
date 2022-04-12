@@ -1,8 +1,14 @@
 version: 2.1
 
+orbs:
+  aws-cli: circleci/aws-cli@2.1.0
+  windows: circleci/windows@2.2.0
+  
+executors:
+
 jobs:
   build:
-    machine:
-      image: ubuntu-2004:202111-02
+    executor:
+      name: windows/default
     steps:
       - checkout

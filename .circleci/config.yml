@@ -12,3 +12,8 @@ jobs:
       name: windows/default
     steps:
       - checkout
+      - run:
+          name: List files
+          shell: bash.exe
+          command: |
+            ls -laH

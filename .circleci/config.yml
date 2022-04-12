@@ -7,7 +7,7 @@ orbs:
 executors:
 
 jobs:
-  build:
+  build-windows:
     executor:
       name: windows/default
     steps:
@@ -19,3 +19,18 @@ jobs:
           shell: bash.exe
           command: |
             ls -laH
+  build-linux:
+    machine:
+      image: ubuntu-2004:202111-02
+    steps:
+      - git-shallow-clone/checkout:
+          fetch_depth: 3
+      - run:
+          name: List files
+          command: |
+            ls -laH
+
+workflows:
+  main:
+    jobs:
+      - build-linux

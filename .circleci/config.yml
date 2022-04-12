@@ -1,7 +1,7 @@
 version: 2.1
 
-orbs:
-  aws-cli: circleci/aws-cli@2.1.0
+orbs: 
+  git-shallow-clone: guitarrapc/git-shallow-clone@2.4.0
   windows: circleci/windows@2.2.0
   
 executors:
@@ -11,7 +11,8 @@ jobs:
     executor:
       name: windows/default
     steps:
-      - checkout
+      - git-shallow-clone/checkout:
+          fetch_depth: 3
       - run:
           name: List files
           shell: bash.exe
